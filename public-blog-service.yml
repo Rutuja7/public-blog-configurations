@@ -1,26 +1,16 @@
 server:
   port: 8081
-logging:
-  level:
-    org:
-      springframework:
-        security: debug
 spring:
+  h2:
+    console:
+      enabled: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    password: root
-    url: jdbc:mysql://localhost:3306/blogdb
-    username: root
+    url: jdbc:h2:mem:ems
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
   jpa:
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-        id:
-          new_generator_mappings: false
-    show-sql: false
+    database-platform: org.hibernate.dialect.H2Dialect
 eureka:
   client:
     register-with-eureka: true
@@ -28,4 +18,4 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka/
   instance:
-    prefer-ip-address: true   
+    prefer-ip-address: true
