@@ -1,9 +1,6 @@
 server:
   port: 8082
 spring:
-  h2:
-    console:
-      enabled: true
   datasource:
     url: jdbc:h2:mem:pbauth
     driver-class-name: org.h2.Driver
